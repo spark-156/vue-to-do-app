@@ -13,7 +13,7 @@
     <form @submit.prevent="addToDo">
       <label>
         Add a todo
-        <input type="text" v-model="newToDo" placeholder="E.G. Feed the cat">
+        <input type="text" v-model.trim="newToDo" placeholder="E.G. Feed the cat">
       </label>
       <button type="submit">Add todo</button>
     </form>
@@ -21,7 +21,7 @@
     <ul>
       <li v-for="(todo, index) in todos" :key="todo.id">
         {{ todo.title }}
-        <button @click="todos.splice(index, 1)">Remove</button>
+        <button @click="removeToDo(index)">Remove</button>
       </li> 
     </ul>
 
