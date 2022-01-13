@@ -1,5 +1,5 @@
 <template>
-  <button @click="onClick" :class="{'button-primary': buttontype === 'primary', 'button-secondary': buttontype === 'secondary' }">
+  <button @click="onClick" type="type" :class="{'button-primary': buttontype === 'primary', 'button-secondary': buttontype === 'secondary' }">
     <slot>Button</slot>
   </button>
 </template>
@@ -10,7 +10,12 @@ export default {
   props: {
     onClick: {
       type: Function,
-      required: true,
+    },
+    type: {
+      type: String,
+      default() {
+        return 'button'
+      }
     },
     buttontype: {
       type: String,
@@ -25,6 +30,8 @@ export default {
   button {
     padding: var(--ldb-lengths-1);
     border-radius: var(--ldb-lengths-1);
+    min-width: 100px;
+    cursor: pointer;
   }
 
   .button-primary {

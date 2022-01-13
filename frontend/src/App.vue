@@ -5,20 +5,35 @@
         <br />
         <input type="text" v-model="newTodo">
       </label>
-      <button class="button-primary" type="submit">Add</button>
+      <Button :buttontype="'primary'" :type="'submit'">Add</button>
     </form>
-    
-    <todo-item v-for="(todo, index) in todos" :title="todo.title" :key="todo.id" @remove="todos.splice(index, 1)"/>
+
+    <br />
+
+    <FlexBox :flowDirection="'column'">
+      <TodoItem 
+        v-for="(todo, index) in todos" 
+        :key="todo.id" 
+        :title="todo.title" 
+        :isDone="todo.isDone" 
+        @remove="todos.splice(index, 1)" 
+        @toggleIsDone="todos[index].isDone = !todos[index].isDone"
+      />
+    </FlexBox>
   </div>
 </template>
 
 <script>
+import FlexBox from './components/FlexBox.vue'
 import TodoItem from './components/TodoItem.vue'
+import Button from './components/Button.vue'
 
 export default {
   name: 'App',
   components: {
-    TodoItem
+    TodoItem,
+    FlexBox,
+    Button,
   },
   data() {
     return {
@@ -29,7 +44,7 @@ export default {
   },
   methods: {
     addTodo() {
-      this.todos.push({ title: this.newTodo, id: this.nextTodoId++ })
+      this.todos.push({ title: this.newTodo, id: this.nextTodoId++, isDone: false })
       this.newTodo = ''
     }
   }
@@ -75,24 +90,6 @@ export default {
   flex-direction: column;
   align-items: center;
 }
-
-button {
-  padding: var(--ldb-lengths-1);
-  border-radius: var(--ldb-lengths-1);
-}
-
-.button-primary {
-  border: none;
-  background-color: var(--ldb-colors-blue);
-  color: var(--ldb-colors-white);
-}
-
-.button-secondary {
-  background-color: var(--ldb-colors-white);
-  color: var(--ldb-colors-black);
-  border: 1px solid var(--ldb-colors-black);
-}
-
 </style>
 
 <style scoped>
