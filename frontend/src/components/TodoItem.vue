@@ -1,12 +1,20 @@
 <template>
-  <li>{{ title }} <button class="button-secondary" @click="$emit('remove')">Remove</button></li>
+  <li>{{ title }} <Button :buttontype="'secondary'" :onClick="() => $emit('remove')">Remove</Button></li>
 </template>
 
 <script>
+import Button from './Button.vue'
+
 export default {
   name: 'TodoItem',
+  components: {
+    Button
+  },
   props: {
-    title: String
+    title: {
+      type: String,
+      required: true,
+    }
   },
   emits: {
     remove: Function
