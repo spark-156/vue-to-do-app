@@ -106,12 +106,15 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  min-width: 300px;
 }
 </style>
 
 <style scoped>
   #center {
-    max-width: 100%;
+    width: 100%;
+    max-width: 800px;
   }
 
   #title {
