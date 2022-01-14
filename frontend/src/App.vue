@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     addTodo() {
-      this.todos.push({ title: this.newTodo, id: this.nextTodoId++, isDone: false })
+      this.todos.splice(0, 0, { title: this.newTodo, id: this.nextTodoId++, isDone: false })
       this.newTodo = ''
     }
   },
@@ -103,7 +103,7 @@ export default {
 
 <style scoped>
   #center {
-      max-width: 100%;
+    max-width: 100%;
   }
 
   #title {
