@@ -5,6 +5,7 @@ COPY package.json .
 COPY yarn.lock . 
 RUN yarn install
 EXPOSE 8080
+COPY vue.config.js .
 CMD [ "yarn", "serve" ]
 
 # build stage
@@ -14,6 +15,7 @@ COPY package.json .
 COPY yarn.lock .
 RUN yarn install
 COPY . .
+COPY vue.config.js .
 RUN yarn build
 
 # production stage
