@@ -101,10 +101,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
 
   text-align: center;
-  color: var(--ldb-colors-black);
-  /* font-size: var(--ldb-lengths-3); */
-  
-  margin-top: var(--ldb-lengths-8);
+  color: var(--ldb-colors-black);  
 
   display: flex;
   flex-direction: column;
