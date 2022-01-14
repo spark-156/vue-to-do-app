@@ -48,6 +48,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     list-style: none;
+    gap: var(--ldb-lengths-1);
     max-width: 100%;
   }
 
