@@ -2,7 +2,7 @@
   <li @mouseenter="highlight = true" @mouseleave="highlight = false">
     <label :class="[{ 'done': isDoneValue, 'highlight': highlight }, 'title']">
       <flex-box :flowDirection="'row'">
-        <input :value="isDoneValue" @change="$emit('toggleIsDoneValue')" type="checkbox" />
+        <input :checked="isDoneValue" @change="$emit('toggleIsDoneValue')" type="checkbox" />
         {{ title }}
       </flex-box>
     </label>
