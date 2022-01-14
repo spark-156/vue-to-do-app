@@ -3,11 +3,9 @@
     <label :class="[{ 'done': isDoneValue, 'highlight': highlight }, 'title']">
       <flex-box :flowDirection="'row'">
         <input :value="isDoneValue" @change="$emit('toggleIsDoneValue')" type="checkbox" />
-        <!-- <div :class="[{ 'done': isDone, 'highlight': highlight }, 'title']">{{ title }}</div>  -->
         {{ title }}
       </flex-box>
     </label>
-      <!-- <Button :buttontype="'primary'" :onClick="() => $emit('toggleIsDone')">{{ isDone ? 'Mark as not done' : 'Mark as done' }}</Button> -->
     <Button :buttontype="'secondary'" :onClick="() => $emit('remove')"><Delete /></Button>
   </li>
 </template>
