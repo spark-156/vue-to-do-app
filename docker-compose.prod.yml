@@ -17,7 +17,7 @@ services:
 
 
   frontend:
-    image: vue-to-do-app-frontend
+    # image: vue-to-do-app-frontend
     container_name: vue-to-do-app-frontend
     build:
       context: ./frontend
