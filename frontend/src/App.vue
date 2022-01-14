@@ -15,9 +15,9 @@
         v-for="(todo, index) in todos" 
         :key="todo.id" 
         :title="todo.title" 
-        :isDone="todo.isDone" 
         @remove="todos.splice(index, 1)" 
-        @toggleIsDone="todos[index].isDone = !todos[index].isDone"
+        @toggleIsDoneValue="todos[index].isDone = !todos[index].isDone"
+        :isDoneValue="todo.isDone"
       />
     </FlexBox>
   </div>
@@ -47,6 +47,14 @@ export default {
     addTodo() {
       this.todos.push({ title: this.newTodo, id: this.nextTodoId++, isDone: false })
       this.newTodo = ''
+    }
+  },
+  watch: {
+    todos: {
+      handler: function(newValue) {
+        console.log(newValue)
+      },
+      deep: true
     }
   }
 }
