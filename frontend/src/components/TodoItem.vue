@@ -1,6 +1,6 @@
 <template>
   <li @mouseenter="highlight = true" @mouseleave="highlight = false">
-    <div :class="[{ 'done': isDone, 'highlight': highlight }]">{{ title }}</div> 
+    <div :class="[{ 'done': isDone, 'highlight': highlight }, 'title']">{{ title }}</div> 
     <FlexBox :flowDirection="'row'">
       <Button :buttontype="'primary'" :onClick="() => $emit('toggleIsDone')">{{ isDone ? 'Mark as not done' : 'Mark as done' }}</Button>
       <Button :buttontype="'secondary'" :onClick="() => $emit('remove')">Remove</Button>
@@ -46,6 +46,12 @@ export default {
     justify-content: space-between;
     align-items: center;
     list-style: none;
+    max-width: 100%;
+  }
+
+  .title {
+    overflow: hidden;
+    word-wrap: break-word;
   }
 
   .highlight {

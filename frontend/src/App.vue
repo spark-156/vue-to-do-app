@@ -94,8 +94,7 @@ export default {
 
 <style scoped>
   #center {
-    width: 800px;
-    
+      max-width: 100%;
   }
 
   #title {
