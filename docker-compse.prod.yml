@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  traefik:
+    image: traefik:v2.4
+    container_name: vue-to-do-app-traefik
+    command:
+      - --api.insecure=true
+      - --providers.docker
+      - --providers.docker.exposedbydefault=false 
+      - --entrypoints.web.address=:80
+    ports:
+      - "80:80"
+      - "8082:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+
+  frontend:
+    image: vue-to-do-app-frontend
+    container_name: vue-to-do-app-frontend
+    build:
+      context: ./frontend
+      target: production
+    labels: 
+      traefik.enable: true
+      traefik.http.routers.frontend.rule: Host(`localhost`)
+      traefik.http.routers.frontend.entrypoints: web
+      traefik.http.services.frontend.loadbalancer.server.port: 80
