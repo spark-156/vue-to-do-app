@@ -49,12 +49,23 @@ export default {
       this.newTodo = ''
     }
   },
+  created() {
+    const storedTodos = JSON.parse(window.localStorage.getItem('todos'))
+    const storedNextTodoId = Number(window.localStorage.getItem('nextTodoId'))
+    if ((storedTodos && storedNextTodoId) !== null) {
+      this.todos = storedTodos
+      this.nextTodoId = storedNextTodoId
+    }
+  },
   watch: {
     todos: {
       handler: function(newValue) {
-        console.log(newValue)
+        window.localStorage.setItem('todos', JSON.stringify(newValue))
       },
       deep: true
+    },
+    nextTodoId(newValue) {
+      window.localStorage.setItem('nextTodoId', newValue)
     }
   }
 }
