@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import 'vue-material-design-icons/styles.css';
 import FlexBox from './components/FlexBox.vue'
 import TodoItem from './components/TodoItem.vue'
 import Button from './components/Button.vue'

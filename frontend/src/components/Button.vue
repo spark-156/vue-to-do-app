@@ -30,7 +30,6 @@ export default {
   button {
     padding: var(--ldb-lengths-1);
     border-radius: var(--ldb-lengths-1);
-    min-width: 100px;
     cursor: pointer;
   }
 
