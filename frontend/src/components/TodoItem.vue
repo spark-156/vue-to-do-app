@@ -61,7 +61,7 @@ export default {
   }
 
   .highlight {
-    text-decoration: underline;
+    border-left: 3px solid var(--ldb-colors-blue);
   }
 
   .done {
